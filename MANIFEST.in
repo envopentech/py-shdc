@@ -1,0 +1,33 @@
+# Include the README and license
+include README.md
+include LICENSE
+
+# Include the requirements file
+include requirements.txt
+
+# Include all Python files
+recursive-include shdc *.py
+
+# Include examples
+recursive-include examples *.py
+recursive-include examples *.json
+
+# Include documentation
+recursive-include docs *.rst
+recursive-include docs *.md
+recursive-include docs Makefile
+recursive-include docs *.bat
+
+# Include tests
+recursive-include tests *.py
+
+# Include the integration test
+include test_integration.py
+
+# Exclude compiled Python files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .DS_Store
