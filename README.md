@@ -495,15 +495,11 @@ isort shdc/
 
 ## License
 
-MIT License - see LICENSE file for details.
+GNU LGPL - see LICENSE file for details.
 
 ## Contributing
 
 Contributions are welcome! Please read our contributing guidelines and submit pull requests to our GitHub repository.
-
-## Documentation
-
-Full documentation is available at: https://py-shdc.readthedocs.io/
 
 ## Support
 
