@@ -26,7 +26,7 @@ Usage:
 __version__ = "1.0.0"
 __author__ = "Argo Nickerson"
 __email__ = "argo@envopen.org"
-__license__ = "MIT"
+__license__ = "LGPL v2.1"
 
 # Core imports for convenience
 from .core.protocol import SHDCProtocol, DeviceRole
