@@ -37,7 +37,7 @@ extensions = [
     'autoapi.extension',
     'myst_parser',
     'sphinx_copybutton',
-    'sphinxcontrib.mermaid',
+    # 'sphinxcontrib.mermaid',  # Temporarily disabled for RTD build
     'sphinx_autodoc_typehints',
 ]
 
@@ -175,4 +175,4 @@ copybutton_prompt_is_regexp = True
 # -- Options for mermaid extension -----------------------------------------
 mermaid_output_format = 'svg'
 mermaid_init_js = "mermaid.initialize({startOnLoad:true});"
-mermaid_version = ""
+mermaid_version = "10.2.0"

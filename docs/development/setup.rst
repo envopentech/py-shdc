@@ -65,7 +65,7 @@ Create and activate a virtual environment:
    venv\Scripts\activate
 
 Install Dependencies
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 Install the package in development mode with all dependencies:
 

@@ -1,5 +1,5 @@
 Temperature Sensor Example
-=========================
+===========================
 
 This example demonstrates building a realistic temperature sensor using the SHDC library.
 The sensor simulates daily temperature variations and automatically connects to available hubs.

@@ -10,16 +10,13 @@ Network Architecture
 Hub-Sensor Topology
 ~~~~~~~~~~~~~~~~~~~
 
-SHDC uses a star topology where sensors communicate with a central hub:
+SHDC uses a star topology where sensors communicate with a central hub.
+The hub serves as the control center that coordinates all sensor devices:
 
-.. mermaid::
-
-   graph TB
-       H[Hub<br/>Control Center] --> S1[Temperature<br/>Sensor]
-       H --> S2[Motion<br/>Detector]
-       H --> S3[Door<br/>Sensor]
-       H --> S4[Humidity<br/>Sensor]
-       H --> S5[Light<br/>Controller]
+* **Hub**: Central control and coordination point
+* **Sensors**: Various device types (temperature, motion, door, humidity, light controllers)
+* **Communication**: All sensors connect directly to the hub
+* **Scalability**: Single hub can manage multiple sensor types
 
 Transport Layer
 ~~~~~~~~~~~~~~~
@@ -208,24 +205,18 @@ Authentication Flow
 
 Device authentication follows a secure handshake:
 
-.. mermaid::
+**1. Discovery Phase**
+   - Sensor sends HUB_DISCOVERY_REQ (signed)
+   - Hub responds with HUB_DISCOVERY_RESP (signed, includes hub public key)
 
-   sequenceDiagram
-       participant S as Sensor
-       participant H as Hub
-       
-       Note over S,H: 1. Discovery Phase
-       S->>H: HUB_DISCOVERY_REQ (signed)
-       H->>S: HUB_DISCOVERY_RESP (signed, includes hub public key)
-       
-       Note over S,H: 2. Joining Phase
-       S->>H: JOIN_REQUEST (sensor public key, capabilities)
-       Note over H: Validate sensor identity
-       H->>S: JOIN_RESPONSE (encrypted session key, configuration)
-       
-       Note over S,H: 3. Secure Communication
-       S->>H: EVENT_REPORT (encrypted with session key)
-       H->>S: BROADCAST_COMMAND (encrypted with broadcast key)
+**2. Joining Phase**
+   - Sensor sends JOIN_REQUEST (sensor public key, capabilities)
+   - Hub validates sensor identity
+   - Hub sends JOIN_RESPONSE (encrypted session key, configuration)
+
+**3. Secure Communication**
+   - Sensor sends EVENT_REPORT (encrypted with session key)
+   - Hub sends BROADCAST_COMMAND (encrypted with broadcast key)
 
 Protocol States
 ---------------
@@ -233,31 +224,26 @@ Protocol States
 Hub States
 ~~~~~~~~~~
 
-.. mermaid::
+Hub devices follow these state transitions:
 
-   stateDiagram-v2
-       [*] --> Stopped
-       Stopped --> Starting: start()
-       Starting --> Listening: bind_successful
-       Listening --> Processing: message_received
-       Processing --> Listening: message_handled
-       Listening --> Stopped: stop()
-       Processing --> Stopped: fatal_error
+* **Stopped** → **Starting**: Initialize hub components
+* **Starting** → **Listening**: Successfully bind to network port
+* **Listening** → **Processing**: Receive message from sensor
+* **Processing** → **Listening**: Complete message handling
+* **Listening** → **Stopped**: Graceful shutdown
+* **Processing** → **Stopped**: Fatal error encountered
 
 Sensor States
 ~~~~~~~~~~~~~
 
-.. mermaid::
+Sensor devices follow these state transitions:
 
-   stateDiagram-v2
-       [*] --> Disconnected
-       Disconnected --> Discovering: start_discovery()
-       Discovering --> Joining: hub_found
-       Joining --> Connected: join_successful
-       Connected --> Transmitting: send_data()
-       Transmitting --> Connected: transmission_complete
-       Connected --> Disconnected: connection_lost
-       Discovering --> Disconnected: discovery_timeout
+* **Disconnected** → **Discovering**: Start hub discovery process
+* **Discovering** → **Joining**: Find available hub
+* **Joining** → **Connected**: Successfully join hub network
+* **Connected** → **Transmitting**: Send sensor data
+* **Transmitting** → **Connected**: Complete data transmission
+* **Connected** → **Disconnected**: Lose connection to hub
 
 Error Handling
 --------------

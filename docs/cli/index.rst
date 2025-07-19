@@ -3,9 +3,8 @@ Command Line Interface
 
 The SHDC library provides command-line tools for easy testing and deployment.
 
-.. toctree::
-   :maxdepth: 2
+Coming Soon
+-----------
 
-   hub_cli
-   sensor_cli
-   configuration
+Detailed CLI documentation will be added in future releases. For now, 
+please refer to the :doc:`../quickstart` guide for basic CLI usage.

@@ -7,5 +7,3 @@ Information for developers working on or extending the SHDC library.
    :maxdepth: 2
 
    setup
-   testing
-   contributing

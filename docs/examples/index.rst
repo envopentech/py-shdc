@@ -8,7 +8,3 @@ Python library for various smart home scenarios.
    :maxdepth: 2
 
    temperature_sensor
-   home_monitoring
-   motion_detection
-   multi_sensor_hub
-   custom_protocols

@@ -77,23 +77,18 @@ Documentation Contents
    :caption: Protocol Reference
 
    protocol/overview
-   protocol/security
-   protocol/messages
-   protocol/architecture
 
 .. toctree::
    :maxdepth: 2
    :caption: API Reference
 
-   api/shdc
+   api/shdc/index
 
 .. toctree::
    :maxdepth: 2
    :caption: Development
 
    development/setup
-   development/testing
-   development/contributing
 
 .. toctree::
    :maxdepth: 1

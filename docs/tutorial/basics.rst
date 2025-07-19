@@ -19,19 +19,9 @@ Key Features
 Architecture Overview
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. mermaid::
-
-   graph TB
-       A[Hub] --> B[Temperature Sensor]
-       A --> C[Motion Detector]
-       A --> D[Door Sensor]
-       A --> E[Humidity Sensor]
-       
-       subgraph "Network Communication"
-           F[UDP Multicast Discovery]
-           G[UDP Unicast Data]
-           H[Ed25519 + AES-256-GCM]
-       end
+The SHDC protocol uses a hub-and-spoke architecture where sensors communicate 
+with a central hub. The network uses UDP for communication with Ed25519 signatures 
+and AES-256-GCM encryption for security.
 
 Device Roles
 ------------
@@ -91,15 +81,7 @@ Device Discovery
 2. **Hub Response**: Available hubs respond with their capabilities
 3. **Hub Selection**: Sensor selects a suitable hub
 
-.. mermaid::
-
-   sequenceDiagram
-       participant S as Sensor
-       participant H as Hub
-       
-       S->>H: HUB_DISCOVERY_REQ (broadcast)
-       H->>S: HUB_DISCOVERY_RESP (unicast)
-       S->>H: Selection decision
+The discovery process allows sensors to automatically find and connect to available hubs.
 
 Device Joining
 ~~~~~~~~~~~~~~
@@ -109,16 +91,7 @@ Device Joining
 3. **Key Exchange**: Secure session established
 4. **Join Confirmation**: Hub confirms successful joining
 
-.. mermaid::
-
-   sequenceDiagram
-       participant S as Sensor
-       participant H as Hub
-       
-       S->>H: JOIN_REQUEST (device ID, public key)
-       H->>S: JOIN_RESPONSE (session key, configuration)
-       S->>H: Acknowledgment
-       Note over S,H: Secure session established
+The joining process establishes a secure, authenticated connection between sensor and hub.
 
 Data Communication
 ~~~~~~~~~~~~~~~~~~

@@ -9,7 +9,3 @@ from basic concepts to advanced features.
 
    basics
    hub_development
-   sensor_development
-   security
-   networking
-   advanced_features
