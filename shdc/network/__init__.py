@@ -19,11 +19,7 @@ Network Features:
 - Robust error handling and recovery
 """
 
-from .discovery import (
-    ContinuousDiscovery,
-    DiscoveredHub,
-    HubDiscovery,
-)
+from .discovery import ContinuousDiscovery, DiscoveredHub, HubDiscovery
 from .transport import (  # Constants
     DEFAULT_BUFFER_SIZE,
     MAX_PACKET_SIZE,

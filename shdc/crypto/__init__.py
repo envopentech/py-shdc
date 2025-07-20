@@ -31,10 +31,7 @@ from .encryption import (  # Constants
     secure_compare,
     zero_memory,
 )
-from .keys import (
-    KeyInfo,
-    KeyManager,
-)
+from .keys import KeyInfo, KeyManager
 
 __all__ = [
     # Main crypto class
