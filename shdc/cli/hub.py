@@ -27,7 +27,7 @@ class SHDCHubCLI:
     async def run_hub(
         self,
         device_id: int,
-        interface: str = "0.0.0.0",
+        interface: str = "127.0.0.1",  # Default to localhost for security
         port: int = 56700,
         debug: bool = False,
     ):
@@ -198,8 +198,8 @@ Examples:
     run_parser.add_argument(
         "-i",
         "--interface",
-        default="0.0.0.0",
-        help="Network interface to bind to (default: 0.0.0.0)",
+        default="127.0.0.1",
+        help="Network interface to bind to (default: 127.0.0.1, use 0.0.0.0 for all interfaces)",
     )
     run_parser.add_argument(
         "-p",

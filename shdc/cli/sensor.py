@@ -67,7 +67,7 @@ class SHDCSensorCLI:
             logger.info("Device keys ready")
 
             # Initialize transport
-            transport = UDPTransport(0, "0.0.0.0")  # Bind to any available port
+            transport = UDPTransport(0, "0.0.0.0")  # Bind to all interfaces for discovery  # nosec B104
             await transport.start()
             logger.info("UDP transport started")
 
@@ -230,25 +230,26 @@ class SHDCSensorCLI:
 
         data = {"timestamp": int(timestamp), "device_type": device_type}
 
+        # Note: Using standard random for demo/test data generation, not security
         if device_type == "temperature":
-            data["temperature"] = round(20 + random.uniform(-5, 15), 1)  # 15-35°C
+            data["temperature"] = round(20 + random.uniform(-5, 15), 1)  # 15-35°C  # nosec B311
             data["unit"] = "celsius"
         elif device_type == "humidity":
-            data["humidity"] = round(random.uniform(30, 80), 1)  # 30-80%
+            data["humidity"] = round(random.uniform(30, 80), 1)  # 30-80%  # nosec B311
             data["unit"] = "percent"
         elif device_type == "pressure":
-            data["pressure"] = round(1013.25 + random.uniform(-50, 50), 2)  # ±50 hPa
+            data["pressure"] = round(1013.25 + random.uniform(-50, 50), 2)  # ±50 hPa  # nosec B311
             data["unit"] = "hPa"
         elif device_type == "light":
-            data["illuminance"] = random.randint(0, 1000)  # 0-1000 lux
+            data["illuminance"] = random.randint(0, 1000)  # 0-1000 lux  # nosec B311
             data["unit"] = "lux"
         elif device_type == "motion":
-            data["motion_detected"] = random.choice([True, False])
+            data["motion_detected"] = random.choice([True, False])  # nosec B311
         elif device_type == "door":
-            data["door_open"] = random.choice([True, False])
+            data["door_open"] = random.choice([True, False])  # nosec B311
         else:
             # Generic sensor
-            data["value"] = round(random.uniform(0, 100), 2)
+            data["value"] = round(random.uniform(0, 100), 2)  # nosec B311
 
         return data
 
@@ -273,7 +274,7 @@ class SHDCSensorCLI:
 
         async def _discover():
             # Initialize minimal transport
-            transport = UDPTransport(0, "0.0.0.0")
+            transport = UDPTransport(0, "0.0.0.0")  # Bind to all interfaces for discovery  # nosec B104
             await transport.start()
 
             try:

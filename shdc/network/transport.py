@@ -41,7 +41,7 @@ class UDPTransport:
     and multicast messaging as specified in SHDC v1.0.
     """
 
-    def __init__(self, port: int = SHDC_PORT, bind_ip: str = "0.0.0.0"):
+    def __init__(self, port: int = SHDC_PORT, bind_ip: str = "127.0.0.1"):  # Default to localhost
         """
         Initialize UDP transport.
 
@@ -79,7 +79,7 @@ class UDPTransport:
 
             # Join multicast group
             try:
-                mreq = socket.inet_aton(SHDC_MULTICAST_IP) + socket.inet_aton("0.0.0.0")
+                mreq = socket.inet_aton(SHDC_MULTICAST_IP) + socket.inet_aton("0.0.0.0")  # Multicast binding  # nosec B104
                 self.multicast_socket.setsockopt(
                     socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq
                 )

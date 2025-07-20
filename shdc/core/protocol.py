@@ -110,10 +110,10 @@ class SHDCProtocol:
         self.logger = logging.getLogger(f"shdc.{role.value}.{self.device_id:08X}")
 
     def _generate_device_id(self) -> int:
-        """Generate a random device ID"""
-        import random
+        """Generate a cryptographically secure random device ID"""
+        import secrets
 
-        return random.randint(0x10000000, 0xFFFFFFFF)
+        return secrets.randbelow(0xFFFFFFFF - 0x10000000) + 0x10000000
 
     # =============================================================================
     # Event Handler Registration
