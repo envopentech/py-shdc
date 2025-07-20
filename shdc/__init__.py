@@ -36,6 +36,16 @@ from .crypto.keys import KeyManager
 from .network.transport import UDPTransport
 from .network.discovery import HubDiscovery
 
+# Protocol constants
+PROTOCOL_VERSION = 1
+DEFAULT_PORT = 56700
+MULTICAST_GROUP = "224.0.1.187"
+MULTICAST_PORT = 56700
+
+# Convenience constants
+SHDC_VERSION = "1.0"
+PROTOCOL_NAME = "Smart Home Device Communications Protocol"
+
 # Package metadata
 __all__ = [
     # Version info
@@ -54,35 +64,12 @@ __all__ = [
     "KeyManager",
     "UDPTransport",
     "HubDiscovery",
-]
-
-# Protocol constants
-PROTOCOL_VERSION = 1
-DEFAULT_PORT = 56700
-MULTICAST_GROUP = "224.0.1.187"
-MULTICAST_PORT = 56700
-
-# Convenience constants
-SHDC_VERSION = "1.0"
-PROTOCOL_NAME = "Smart Home Device Communications Protocol"
-
-__version__ = "1.0.0"
-__author__ = "Argo Nickerson"
-__email__ = "argo@envopen.org"
-
-# Import main classes for easy access
-from .core.protocol import SHDCProtocol
-from .core.messages import MessageType, SHDCMessage
-from .crypto.keys import KeyManager
-from .network.discovery import HubDiscovery
-from .network.transport import UDPTransport
-
-__all__ = [
-    "SHDCProtocol",
-    "MessageType", 
-    "SHDCMessage",
-    "KeyManager",
-    "HubDiscovery",
-    "UDPTransport",
-    "__version__",
+    
+    # Protocol constants
+    "PROTOCOL_VERSION",
+    "DEFAULT_PORT",
+    "MULTICAST_GROUP",
+    "MULTICAST_PORT",
+    "SHDC_VERSION",
+    "PROTOCOL_NAME",
 ]
