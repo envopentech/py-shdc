@@ -67,7 +67,9 @@ class SHDCSensorCLI:
             logger.info("Device keys ready")
 
             # Initialize transport
-            transport = UDPTransport(0, "0.0.0.0")  # Bind to all interfaces for discovery  # nosec B104
+            transport = UDPTransport(
+                0, "0.0.0.0"
+            )  # Bind to all interfaces for discovery  # nosec B104
             await transport.start()
             logger.info("UDP transport started")
 
@@ -232,16 +234,20 @@ class SHDCSensorCLI:
 
         # Note: Using standard random for demo/test data generation, not security
         if device_type == "temperature":
-            data["temperature"] = round(20 + random.uniform(-5, 15), 1)  # 15-35°C  # nosec B311
+            data["temperature"] = round(
+                20 + random.uniform(-5, 15), 1  # nosec B311
+            )  # 15-35°C
             data["unit"] = "celsius"
         elif device_type == "humidity":
-            data["humidity"] = round(random.uniform(30, 80), 1)  # 30-80%  # nosec B311
+            data["humidity"] = round(random.uniform(30, 80), 1)  # nosec B311 # 30-80%
             data["unit"] = "percent"
         elif device_type == "pressure":
-            data["pressure"] = round(1013.25 + random.uniform(-50, 50), 2)  # ±50 hPa  # nosec B311
+            data["pressure"] = round(
+                1013.25 + random.uniform(-50, 50), 2  # nosec B311
+            )  # ±50 hPa
             data["unit"] = "hPa"
         elif device_type == "light":
-            data["illuminance"] = random.randint(0, 1000)  # 0-1000 lux  # nosec B311
+            data["illuminance"] = random.randint(0, 1000)  # nosec B311 # 0-1000 lux
             data["unit"] = "lux"
         elif device_type == "motion":
             data["motion_detected"] = random.choice([True, False])  # nosec B311
@@ -274,7 +280,9 @@ class SHDCSensorCLI:
 
         async def _discover():
             # Initialize minimal transport
-            transport = UDPTransport(0, "0.0.0.0")  # Bind to all interfaces for discovery  # nosec B104
+            transport = UDPTransport(
+                0, "0.0.0.0"
+            )  # Bind to all interfaces for discovery  # nosec B104
             await transport.start()
 
             try:
