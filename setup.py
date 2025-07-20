@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -33,8 +33,16 @@ setup(
         "shdc": ["py.typed"],
     },
     keywords=[
-        "smart-home", "iot", "protocol", "communication", "security", 
-        "cryptography", "automation", "networking", "embedded", "devices"
+        "smart-home",
+        "iot",
+        "protocol",
+        "communication",
+        "security",
+        "cryptography",
+        "automation",
+        "networking",
+        "embedded",
+        "devices",
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",

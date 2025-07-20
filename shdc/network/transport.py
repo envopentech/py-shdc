@@ -13,6 +13,7 @@ from typing import Callable, List, Optional, Tuple
 # Optional dependency for network interface discovery
 try:
     import netifaces  # type: ignore
+
     HAS_NETIFACES = True
 except ImportError:
     netifaces = None  # type: ignore

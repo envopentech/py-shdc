@@ -116,6 +116,7 @@ class HubDiscovery:
             # Set up discovery response handler
             def sync_handler(data: bytes, addr: Tuple[str, int]):
                 asyncio.create_task(self._handle_discovery_response(data, addr))
+
             transport.on_message(sync_handler)
 
             # Send discovery request
