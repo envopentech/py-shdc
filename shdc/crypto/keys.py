@@ -10,7 +10,7 @@ import threading
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import (
     Ed25519PrivateKey,
@@ -78,7 +78,7 @@ class KeyManager:
 
     def generate_device_keys(
         self, force: bool = False
-    ) -> tuple[Ed25519PrivateKey, Ed25519PublicKey]:
+    ) -> Tuple[Ed25519PrivateKey, Ed25519PublicKey]:
         """
         Generate or load device identity keys.
 
