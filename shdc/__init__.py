@@ -16,7 +16,7 @@ Usage:
         from shdc.core.protocol import SHDCProtocol, DeviceRole
         from shdc.crypto.keys import KeyManager
         from shdc.network.transport import UDPTransport
-    
+
     For CLI usage:
         shdc-hub run 0x12345678
         shdc-sensor run 0x87654321 temperature
@@ -28,13 +28,14 @@ __author__ = "Argo Nickerson"
 __email__ = "argo@envopen.org"
 __license__ = "LGPL v2.1"
 
+from .core.messages import MessageType, SHDCHeader, SHDCMessage
+
 # Core imports for convenience
-from .core.protocol import SHDCProtocol, DeviceRole
-from .core.messages import MessageType, SHDCMessage, SHDCHeader
+from .core.protocol import DeviceRole, SHDCProtocol
 from .crypto.encryption import SHDCCrypto
 from .crypto.keys import KeyManager
-from .network.transport import UDPTransport
 from .network.discovery import HubDiscovery
+from .network.transport import UDPTransport
 
 # Protocol constants
 PROTOCOL_VERSION = 1
@@ -53,7 +54,6 @@ __all__ = [
     "__author__",
     "__email__",
     "__license__",
-    
     # Core classes
     "SHDCProtocol",
     "DeviceRole",
@@ -64,7 +64,6 @@ __all__ = [
     "KeyManager",
     "UDPTransport",
     "HubDiscovery",
-    
     # Protocol constants
     "PROTOCOL_VERSION",
     "DEFAULT_PORT",

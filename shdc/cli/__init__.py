@@ -8,4 +8,4 @@ Command-line interface tools for the SHDC protocol.
 from .hub import SHDCHubCLI
 from .sensor import SHDCSensorCLI
 
-__all__ = ['SHDCHubCLI', 'SHDCSensorCLI']
+__all__ = ["SHDCHubCLI", "SHDCSensorCLI"]

@@ -19,30 +19,26 @@ Network Features:
 - Robust error handling and recovery
 """
 
-from .transport import (
-    UDPTransport,
-    TransportError,
-    # Constants
+from .discovery import (
+    ContinuousDiscovery,
+    DiscoveredHub,
+    HubDiscovery,
+)
+from .transport import (  # Constants
     DEFAULT_BUFFER_SIZE,
     MAX_PACKET_SIZE,
-)
-
-from .discovery import (
-    HubDiscovery,
-    DiscoveredHub,
-    ContinuousDiscovery,
+    TransportError,
+    UDPTransport,
 )
 
 __all__ = [
     # Transport classes
     "UDPTransport",
     "TransportError",
-    
     # Discovery classes
     "HubDiscovery",
-    "DiscoveredHub", 
+    "DiscoveredHub",
     "ContinuousDiscovery",
-    
     # Transport constants
     "DEFAULT_BUFFER_SIZE",
     "MAX_PACKET_SIZE",

@@ -12,37 +12,35 @@ including the main protocol state machine, message serialization/deserialization
 and event handling for device interactions.
 """
 
-from .protocol import SHDCProtocol, DeviceRole, SensorState, HubState
-from .messages import (
+from .messages import (  # Constants
+    HEADER_SIZE,
+    MAX_PACKET_SIZE,
+    REPLAY_TOLERANCE_SECONDS,
+    SHDC_BROADCAST_IP,
+    SHDC_MULTICAST_IP,
+    SHDC_PORT,
+    SIGNATURE_SIZE,
+    BroadcastCommandPayload,
+    CommandType,
+    EventReportPayload,
+    EventType,
+    HubDiscoveryRequestPayload,
+    HubDiscoveryResponsePayload,
+    JoinRequestPayload,
+    JoinResponsePayload,
+    KeyRotationPayload,
     MessageType,
     SHDCHeader,
     SHDCMessage,
-    EventType,
-    CommandType,
-    JoinRequestPayload,
-    JoinResponsePayload,
-    EventReportPayload,
-    BroadcastCommandPayload,
-    KeyRotationPayload,
-    HubDiscoveryRequestPayload,
-    HubDiscoveryResponsePayload,
-    # Constants
-    SHDC_PORT,
-    SHDC_MULTICAST_IP,
-    SHDC_BROADCAST_IP,
-    MAX_PACKET_SIZE,
-    HEADER_SIZE,
-    SIGNATURE_SIZE,
-    REPLAY_TOLERANCE_SECONDS,
 )
+from .protocol import DeviceRole, HubState, SensorState, SHDCProtocol
 
 __all__ = [
     # Protocol classes
     "SHDCProtocol",
-    "DeviceRole", 
+    "DeviceRole",
     "SensorState",
     "HubState",
-    
     # Message classes
     "MessageType",
     "SHDCHeader",
@@ -56,7 +54,6 @@ __all__ = [
     "KeyRotationPayload",
     "HubDiscoveryRequestPayload",
     "HubDiscoveryResponsePayload",
-    
     # Constants
     "SHDC_PORT",
     "SHDC_MULTICAST_IP",
