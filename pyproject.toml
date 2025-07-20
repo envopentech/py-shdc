@@ -7,7 +7,6 @@ name = "py-shdc"
 version = "1.0.0"
 description = "Python implementation of the Smart Home Device Communications Protocol (SHDC)"
 readme = "README.md"
-license = "LGPL-3.0-or-later"
 authors = [
     {name = "Argo Nickerson", email = "argo@envopen.org"},
 ]
@@ -84,6 +83,9 @@ Homepage = "https://github.com/envopentech/py-shdc"
 Documentation = "https://py-shdc.readthedocs.io/"
 Repository = "https://github.com/envopentech/py-shdc.git"
 Issues = "https://github.com/envopentech/py-shdc/issues"
+
+[project.license]
+text = "LGPL-2.1"
 
 [tool.black]
 line-length = 88
