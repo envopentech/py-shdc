@@ -2,6 +2,8 @@
 
 A comprehensive Python implementation of the Smart Home Device Communications (SHDC) protocol v1.0. This library provides secure, efficient communication between smart home devices using Ed25519 digital signatures and AES-256-GCM encryption over UDP.
 
+[![Tests](https://github.com/envopentech/py-shdc/actions/workflows/tests.yml/badge.svg)](https://github.com/envopentech/py-shdc/actions/workflows/tests.yml)
+
 ## Features
 
 - **Secure Communication**: Ed25519 digital signatures and AES-256-GCM encryption
